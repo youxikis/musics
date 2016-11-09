@@ -28,18 +28,20 @@ $(function(){
 		return m+":"+s;
 	}
 	//进度点击
-	/*progress.on("touchend",function(e){
-		audio.currentTime=(e.offsetX-progress.position().left)/progress.width()*audio.duration;
-	})*/
+	progress.on("touchend",function(e){
+		e.stopPropagation();
+		e.preventDefault();
+		audio.currentTime=(e.originalEvent.changedTouches[0].clientX-progress.eq(0).offset().left)/progress.width()*audio.duration;
+	})
 	
 //进度条拖拽  
 //小圆半径  
 var r1=pI.width()/2;
 	pI.on("touchstart",function(e){
 		e.preventDefault();
-		var start=r1-e.offsetX;
+		var start=r1-e.originalEvent.changedTouches[0].clientX;
 		$(document).on("touchmove",function(e){
-			var left=e.clientX-progress.position().left+start;
+			var left=e.originalEvent.changedTouches[0].clientX-progress.offset().left+start;
 			var ct=left/progress.width()*audio.duration;
 			if(ct>=audio.duration||ct<0){
 				return;
@@ -89,7 +91,6 @@ var r1=pI.width()/2;
 	   	$(musics).each(function(i){
 	   		var c=(i==currentIndex)?"active":"";
 	   		$("<li class="+c+"><span>"+musics[i].name+"</span><span>--"+musics[i].author+"</span><div id='del'>×</div></li>").appendTo(".mlist")
-	   		
 	   	})
    }
    //删除
@@ -144,34 +145,32 @@ var r1=pI.width()/2;
 	   render();
 	
 	//事件
-	$audio.onloadstart=function(){
+	$audio.on("loadstart",function(){
 		
-	}
-	$audio.oncanplay=function(){
+	})
+	$audio.on("canplay",function(){
 		
-	}
-	$audio.onprogress=function(){
+	})
+	$audio.on("progress",function(){
 		
-	}
-	$audio.onplay=function(){
+	})
+	$audio.on("play",function(){
 		
-	}
-	$audio.onpause=function(){
+	})
+	$audio.on("pause",function(){
 		
-	}
-	$audio.onended=function(){
+	})
+	$audio.on("ended",function(){
 		
-	}
-	$audio.ontimeupdate=function(){
+	})
+	$audio.on("timeupdate",function(){
 		duration.html(formate(audio.duration));
 		currentTime.html(formate(audio.currentTime));
 		//进度条
 		pI.css("left",progress.width()*audio.currentTime/audio.duration);
-		console.log(currentTime,duration)
-	}
-	$audio.onvolumechange=function(){
+	})
+	$audio.on("volumechange",function(){
 		
-	}
-	console.log(currentTime,duration)
+	})
 	
 })

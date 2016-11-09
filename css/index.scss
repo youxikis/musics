@@ -226,6 +226,21 @@ body{
         z-index: 55;
         padding-bottom: 1.4rem;
         display: none;
+        .top{
+            width: 100%;
+            height: 1.4rem;
+//          background: red;
+            line-height: 1.4rem;
+            border-bottom: 1px solid #333;
+            .add{
+               position: absolute;
+               right: 2.0rem; 
+            }
+            .kong{
+               position: absolute;
+               right: 1rem;  
+            }
+        }
         .mlist{
             padding: 0.4rem;
             overflow: hidden;
