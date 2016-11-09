@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width"/>
+		 <!-- Add to homescreen for Safari on Ios -->
+		  <meta name="apple-mobile-web-app-capable" content="yes">
+		  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+		  <meta name="apple-mobile-web-app-title" content="node">
+		  <link rel="apple-touch-icon" href="logo.png">
+		
+		  <!-- Add to homescreen for Chrome on Android -->
+		  <meta name="mobile-web-app-capable" content="yes">
+		  <meta name="application-name" content="node">
+		  <meta name="theme-color" content="#2F3BA2">
+		  <link rel="icon" sizes="192x192" href="logo.png">
+		<title>音樂播放器</title>
+	</head>
+	<link rel="stylesheet" href="css/index.css" />
+	<body>
+<!--首页-->
+		<div id="body-first">
+		<!--头部-->	
+			<div class="header">
+				<div class="headern">
+					<div class="hd-more"><</div>
+					<div class="hd-title">青花</div>
+					<div class="hd-back">…</div>
+				</div>
+			</div>
+			<div class="xinxi">
+				<div class="author">周传雄</div>
+				<div class="some">
+					<ul class="">
+						<li class="">流畅</li>
+						<li class="">独家</li>
+						<li class="">音效</li>
+					</ul>
+				</div>
+				
+			</div>
+			<div class="lrc">
+				
+			</div>
+			<ol id="list"></ol>
+			<div id="footer">
+				<div class="proBox">
+					<div class="currentTime" id="currentTime">0:00</div>
+					<div class="progress" id="progress">
+						<div class="p-i" id="p-i"></div>
+						<div class="p-i2"></div>
+					</div>
+					<div class="duration" id="duration">0:00</div>
+				</div>
+				<div class="pp">
+					<div class="pre icon">&#xe64d;</div>
+					<div class="play icon" >&#xe60c;</div>
+					<!--<div class="pause">&#xe60e;</div>-->
+					<div class="next icon">&#xe660;</div>
+				</div>
+				<div class="qita">
+					<div class="like icon">&#xe64e;</div>
+					<div class="icon xunhuan">&#xe630;</div>
+					<div class="icon xiazai">&#xe612;</div>
+					<div class="fenxiang icon">&#xe604;</div>
+					<div class="sel icon">&#xe610;</div>
+				</div>
+				
+			</div>
+			
+		<!--列表-->
+		<div class="liebiao">
+			<ul class="mlist">
+				
+			</ul>
+			<div class="guan">关闭</div>
+		</div>	
+		</div>
+		<audio id="audio" src="mp3/周传雄 - 不要问我分手后怎么过.mp3"></audio>
+	</body>
+</html>
+<script src="js/jquery.min.js"></script>
+<script src="js/index.js"></script>
